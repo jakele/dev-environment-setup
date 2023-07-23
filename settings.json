@@ -1,0 +1,82 @@
+{
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.tabSize": 2,
+  "eslint.autoFixOnSave": true,
+  "cSpell.userWords": [
+    "flexbox",
+    "foodsby",
+    "Formik",
+    "headshot",
+    "nbsp",
+    "untouch"
+  ],
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "editor.autoClosingBrackets": "never",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/package.json": true,
+    "**/package-lock.json": true,
+    "**/bower_components": true,
+    "**/tmp": true
+  },
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "python",
+    "pug",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml",
+    "mdx",
+    "jsx"
+  ],
+  "workbench.settings.editor": "json",
+  "editor.formatOnSave": true,
+  "window.restoreWindows": "none",
+  "html-css-class-completion.enableEmmetSupport": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "explorer.confirmDelete": false,
+  "extensions.ignoreRecommendations": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "debug.javascript.autoAttachFilter": "always",
+  "window.zoomLevel": 1,
+  "vscode-pets.petColor": "orange"
+}
