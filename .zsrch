@@ -1,32 +1,69 @@
-# Path to your oh-my-zsh installation.
+# Modifies the system's PATH environment variable to include directories that contain important system utilities
+# The $PATH is a list of directories separated by a colon(:) symbol that tells the shell which directories to search for executable files
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Defines the installation path of the oh-my-zsh framework
 export ZSH="/Users/jeffkern/.oh-my-zsh"
 
-# Path setup for Google Cloud SDK
+# Adds Google Cloud SDK and Node.js to the PATH environment variable, enabling their execution from any directory without having to specify the full path
 export PATH="/usr/lib/google-cloud-sdk/bin:$PATH"
+export PATH=$PATH:/Users/jeffkern/.nvm/versions/node/v16.20.1/lib/node_modules/
 
-# Set name of the theme to load
+# Sets the active theme for the oh-my-zsh framework, defining the appearance of the terminal.
 ZSH_THEME="robbyrussell"
 
-# Which plugins would you like to load?
-# Add plugins here
-# plugins=(git)
-
+# Load oh-my-zsh framework, which enhances the terminal experience with extended plugin and theme support.
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Sets the location for the Node Version Manager (nvm)
 export NVM_DIR=~/.nvm
 
-# Custom aliases
-alias repos="cd ~/Documents/repos"
+# Personal alias definitions. Aliases are shortcut commands that can be configured to perform longer commands or a sequence of commands.
+# A few examples of custom aliases are defined below:
 
-# Aliases for opening Google Chrome with specific URLs
-alias email="open -a Google\ Chrome 'https://mail.google.com/mail/u/1/#inbox'"
-alias github="open -a Google\ Chrome 'https://github.com/'"
-alias messages="open -a Google\ Chrome 'https://messages.google.com/web/authentication'"
+# Lists all active aliases and function definitions.
+alias list_cmds= "egrep '^alias|^\w+\(\)' ~/.zshrc"
 
-# Loading nvm and nvm bash_completion
+# Changes current directory to ~/Documents/repos
+alias repos="~/Documents/repos"
+
+# Reloads the zshrc configuration file, applying any changes made to it
+alias reload="source ~/.zshrc"
+
+# Executes a sequence of commands: installs npm packages, opens current directory in Visual Studio Code, and starts the Node.js application
+alias up_and_go="npm install && code . && npm start"
+
+# Clones a git repository from provided URL, navigates into the new directory
+clone_cd() {
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: my_git_project <repository_url>"
+    return 1
+  fi
+
+  local repo_url="$1"
+  local dir_name="$(basename "$repo_url" .git)"
+
+  git clone "$repo_url" "$dir_name" &&
+  cd "$dir_name"
+}
+
+# Clones a git repository from provided URL, navigates into the new directory, installs npm packages, opens current directory in Visual Studio Code, and starts the Node.js application
+clone_and_run() {
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: my_git_project <repository_url>"
+    return 1
+  fi
+
+  local repo_url="$1"
+  local dir_name="$(basename "$repo_url" .git)"
+
+  git clone "$repo_url" "$dir_name" &&
+  cd "$dir_name" &&
+  npm install &&
+  code . &&
+  npm start
+}
+
+# Loads nvm and nvm bash_completion for further use in the terminal
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Aliasing python to python3
-alias python=/usr/bin/python3
